@@ -1,0 +1,10 @@
+/* pages/user/user.wxss */
+.data-box {
+  overflow: hidden;
+  transition: height 0.2s;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}

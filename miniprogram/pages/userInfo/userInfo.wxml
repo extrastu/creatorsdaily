@@ -1,0 +1,68 @@
+<!--pages/userInfo/userInfo.wxml-->
+<wxs src="../../utils/formatTime.wxs" module="filter" />
+<view class="cu-list menu  margin-top">
+	<view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black">头像</text>
+		</view>
+		<view class="action">
+			<view class="cu-avatar round" style="background-image:url(https://media.creatorsdaily.com/{{user.avatar.hash?user.avatar.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;" bindtap="changeAvatar"></view>
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black">名字</text>
+		</view>
+		<view class="action text-grey">
+			{{ user.nickname}}
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black">账户ID</text>
+		</view>
+		<view class="action text-grey">
+			{{ user.username}}
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black">电子邮件</text>
+		</view>
+		<view class="action text-grey">
+			{{ user.email}}
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black">个人链接</text>
+		</view>
+		<view class="action text-grey">
+			{{ user.link}}
+		</view>
+	</view>
+	<view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black text-cut">一句话介绍</text>
+		</view>
+		<view class="action text-grey">
+			{{ user.description}}
+		</view>
+	</view>
+  <view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black text-cut">编号</text>
+		</view>
+		<view class="action text-grey">
+			{{ user.number}}
+		</view>
+	</view>
+  <view class="cu-item arrow">
+		<view class="content">
+			<text class="text-black text-cut">注册时间</text>
+		</view>
+		<view class="action text-grey">
+			{{ filter.formatTime(user.createdAt)}}
+		</view>
+	</view>
+</view>

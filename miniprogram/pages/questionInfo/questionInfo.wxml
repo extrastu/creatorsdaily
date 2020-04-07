@@ -1,0 +1,38 @@
+<!--pages/questionInfo/questionInfo.wxml-->
+<wxs src="../../utils/formatTime.wxs" module="filter" />
+<view class="padding bg-white">
+	<text class="text-xl text-bold text-black"># {{question.name}}</text>
+</view>
+
+<view class="bg-white margin-top" wx:for='{{question.options}}'>
+	<view class="cu-item shadow">
+		<view class="cu-list menu-avatar">
+			<view class="cu-item bg-white " wx:key data-id='{{item.product.id}}' bindtap="toProductDetail">
+				<view class="cu-avatar lg radius" style="background-image:url(https://media.creatorsdaily.com/{{item.product.icon.hash?item.product.icon.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;"></view>
+				<view class="content flex-sub margin-left">
+					<view class="text-black text-bold">{{item.product.name}}</view>
+					<view class="text-gray text-sm text-cut">
+						{{item.product.description}}
+					</view>
+					<view>
+						<view class="cu-tag bg-grey sm round" wx:for="{{item.product.topics}}" wx:for-item='tag' style="margin-left:0;margin-right:10rpx">{{tag.name}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="cu-list menu-avatar comment solids-top" wx:for='{{item.ups}}' wx:for-item="users">
+			<view class="cu-item">
+				<view class="cu-avatar round" style="background-image:url(https://media.creatorsdaily.com/{{users.user.avatar.hash?users.user.avatar.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;"></view>
+				<view class="content">
+					<view class="text-grey">{{users.user.nickname}}</view>
+					<view class="text-gray text-content text-df">
+						{{users.reason?users.reason:''}}
+					</view>
+					<view class="margin-top-sm flex justify-between">
+						<view class="text-gray text-df"> {{filter.formatTime(users.createdAt)}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

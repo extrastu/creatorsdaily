@@ -1,0 +1,28 @@
+<!--pages/post/post.wxml-->
+<view class="padding bg-white">
+	<view class="text-xxl text-black text-bold">{{post.title}}</view>
+	<wemark md="{{post.content}}" link highlight type="wemark" class='maargin-top text-sm'></wemark>
+</view>
+<text class="text-grey margin-left">
+  相关产品
+</text>
+<view class="cu-list menu-avatar">
+	<view class="cu-item cur bg-white margin-bottom margin-top" data-id='{{post.products[0].id}}' bindtap="toProductDetail">
+		<view class="cu-avatar radius lg" style="background-image:url(https://media.creatorsdaily.com/{{post.products[0].icon.hash?post.products[0].icon.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;">
+		</view>
+		<view class="content">
+			<view>
+				<text class="text-cut text-black">{{post.products[0].name}}</text>
+				<view class="cu-tag bg-black sm round" wx:if='{{post.products[0].isMiniProgram}}'>WX</view>
+			</view>
+			<view class="text-gray text-sm flex margin-top-xs text-cut">
+				<!-- <view class="cu-tag bg-grey sm round" wx:for="{{item.topics}}" wx:for-item='tag' style="margin-left:0;margin-right:10rpx">{{tag.name}}</view> -->
+				{{post.products[0].description}}
+			</view>
+		</view>
+		<view class="action">
+			<view class="cuIcon-usefullfill text-black"></view>
+			<view class="text-black text-xs">{{post.products[0].likeCount}}</view>
+		</view>
+	</view>
+</view>

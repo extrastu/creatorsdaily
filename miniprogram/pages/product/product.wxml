@@ -1,0 +1,106 @@
+<!--pages/product/product.wxml-->
+<wxs src="../../utils/formatTime.wxs" module="filter" />
+<view class="bg-white">
+	<view class="cu-list menu-avatar">
+		<view class="cu-item">
+			<view class="cu-avatar lg radius" style="background-image:url(https://media.creatorsdaily.com/{{product.icon.hash?product.icon.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;"></view>
+			<view class="content flex-sub margin-left">
+				<view class="text-black text-bold">{{product.name}}</view>
+				<view class="text-gray text-sm text-cut">
+					{{product.description}}
+				</view>
+				<view>
+					<view class="cu-tag bg-grey sm round" wx:for="{{product.topics}}" wx:for-item='tag' style="margin-left:0;margin-right:10rpx">{{tag.name}}</view>
+				</view>
+				<!-- <view class="text-blue flex">
+					<text class="cuIcon-like margin-right text-blue margin-top-sm"></text>
+					<button class="margin-left-xl text-right" open-type="share">
+						<text class="cuIcon-forward text-blue"></text>
+					</button>
+				</view> -->
+			</view>
+		</view>
+	</view>
+	<swiper class="screen-swiper round-dot margin-top" wx:if='{{product.medias.length>0}}'>
+		<swiper-item wx:for="{{product.medias}}" wx:key data-url='https://media.creatorsdaily.com/{{item.hash}}' bindtap="preview">
+			<image src="https://media.creatorsdaily.com/{{item.hash}}" mode="widthFix"></image>
+		</swiper-item>
+	</swiper>
+	<view>
+		<view class="cu-bar btn-group margin-top">
+			<button class="cu-btn bg-red lg radius-sm " wx:if='{{!product.isLike}}' bindtap="doLike">
+				<text > <text class="cuIcon-usefullfill margin-right"></text> 喜欢 {{product.likeCount}}</text>
+			</button>
+			<button class="cu-btn bg-grey lg radius-sm " wx:if='{{product.isLike}}' bindtap="doLike">
+				<text> <text class="cuIcon-usefullfill margin-right"></text> 我喜欢 {{product.likeCount}}</text>
+			</button>
+			<button class="cu-btn lg radius-sm " open-type="share">
+				<text> <text class="cuIcon-share margin-right"></text>分享</text>
+			</button>
+		</view>
+	</view>
+	<view class="padding text-sm">
+		<wemark md="{{product.content}}" link highlight type="wemark"></wemark>
+	</view>
+</view>
+<text class="text-grey margin-left" >
+  创建时间
+</text>
+<view class="text-grey padding text-cut bg-white margin-top-sm">
+ {{filter.formatTime(product.createdAt)}}
+</view>
+<text class="text-grey margin-left" wx:if='{{product.links.length>0}}'>
+  产品链接
+</text>
+<view class="text-blue padding text-cut bg-white margin-top-sm" wx:if='{{product.links.length>0}}' bindtap='doCopy'>
+	{{product.links[0]}}
+</view>
+<text class="text-grey margin-left">
+  发现者
+</text>
+<view class="cu-list menu-avatar">
+	<view class="cu-item cur bg-white margin-bottom margin-top">
+		<view class="cu-avatar radius lg" style="background-image:url(https://media.creatorsdaily.com/{{product.discoverer.avatar.hash?product.discoverer.avatar.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;">
+		</view>
+		<view class="content">
+			<view>
+				<text class="text-cut text-black">{{product.discoverer.nickname}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+<text class="text-grey margin-left" wx:if='{{product.creators.length>0}}'>
+  创造者
+</text>
+<view class="cu-list menu-avatar" wx:if='{{product.creators.length>0}}'>
+	<view class="cu-item cur bg-white margin-bottom margin-top">
+		<view class="cu-avatar radius lg" style="background-image:url(https://media.creatorsdaily.com/{{product.creators[0].avatar.hash?product.creators[0].avatar.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;">
+		</view>
+		<view class="content">
+			<view>
+				<text class="text-cut text-black">{{product.creators[0].nickname}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+<text class="text-grey margin-left" wx:if='{{product.likes.length>0}}'>
+  喜欢它的用户
+</text>
+<view class="cu-avatar-group margin-top bg-white " wx:if='{{product.likes.length>0}}'>
+	<view class="padding  text-left">
+		<view class="cu-avatar round " wx:for="{{product.likes}}" wx:key style="background-image:url(https://media.creatorsdaily.com/{{item.avatar?item.avatar.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}})"></view>
+	</view>
+</view>
+<text class="text-grey margin-left" wx:if='{{product.options.length>0}}'>
+  相关问题
+</text>
+<view class="cu-list" wx:if='{{product.options.length>0}}'>
+	<view class="cu-item cur bg-white margin-bottom margin-top padding" wx:for="{{product.options}}" wx:key bindtap="skipQuestionInfo" data-id='{{item.question.id}}'>
+		<view class="content">
+			<view>
+				<text class="text-grey">#</text>
+				<text class="text-cut text-black margin-left">{{item.question.name}}</text>
+			</view>
+		</view>
+	</view>
+</view>

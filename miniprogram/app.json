@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/daily/daily",
+    "pages/product/product",
+    "pages/post/post",
+    "pages/search/search",
+    "pages/user/user",
+    "pages/class/class",
+    "pages/question/question",
+    "pages/topic/topic",
+    "pages/userInfo/userInfo",
+    "pages/about/about",
+    "pages/log/log",
+    "pages/chat/chat",
+    "pages/questionInfo/questionInfo"
+  ],
+  "window": {
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "创造者",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#4558e6",
+    "color": "#bfbfbf",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/homed.png"
+      },
+      {
+        "pagePath": "pages/daily/daily",
+        "text": "日报",
+        "iconPath": "/images/daily.png",
+        "selectedIconPath": "/images/dailyd.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "分类",
+        "iconPath": "/images/class.png",
+        "selectedIconPath": "/images/classd.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "/images/search.png",
+        "selectedIconPath": "/images/searchd.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/images/user.png",
+        "selectedIconPath": "/images/userd.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "wemark": "../wemark/wemark"
+  },
+  "plugins": {
+    "chatbot": {
+      "version": "1.1.14",
+      "provider": "wx8c631f7e9f2465e1"
+    },
+    "WechatSI": {
+      "version": "0.3.3",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

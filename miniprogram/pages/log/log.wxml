@@ -1,0 +1,37 @@
+<!--pages/log/log.wxml-->
+<view class="cu-timeline" style="background-color:unset">
+	<view class="cu-item text-green">
+		<view class="bg-white content shadow">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-gray text-green">v1.0.2</view>
+				<view class="cu-tag line-white bg-black">2020/04/05</view>
+			</view>
+			<view class="margin-top-sm text-content ">
+				我的页面增加产品、喜欢、发现、文章等索引
+			</view>
+		</view>
+	</view>
+	<view class="cu-item text-green">
+		<view class="bg-white content shadow">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-gray text-green">v1.0.1</view>
+				<view class="cu-tag line-white bg-black">2020/04/04</view>
+			</view>
+			<view class="margin-top-sm text-content ">
+				<view>1.支持登录</view>
+				<view>2.产品支持喜欢/取消喜欢</view>
+				<view>3.用户信息</view>
+				<view>4.版本信息</view>
+			</view>
+		</view>
+	</view>
+	<view class="cu-item text-green">
+		<view class="bg-white content shadow">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-gray text-green">v1.0.0</view>
+				<view class="cu-tag line-white bg-black">2020/04/02</view>
+			</view>
+			<view class="margin-top-sm text-content ">创造者Pro小程序上线发布</view>
+		</view>
+	</view>
+</view>

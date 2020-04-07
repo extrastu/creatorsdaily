@@ -1,0 +1,5 @@
+<!--pages/question/question.wxml-->
+<view class="padding margin-top bg-white text-bold text-black" wx:for='{{list}}' wx:key data-id='{{item.id}}' bindtap="skipQuestionInfo">
+	# {{item.name}}
+</view>
+<image src="../../images/loading.svg" style="width:100%;height:50px;" wx:if='{{loading}}'></image>

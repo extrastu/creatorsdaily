@@ -1,0 +1,6 @@
+/* pages/product/product.wxss */
+.copyright{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

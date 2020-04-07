@@ -1,0 +1,26 @@
+<!--pages/about/about.wxml-->
+  <view class="UCenter-bg">
+    <image src="/images/logo.png" class="png" mode="widthFix"></image>
+    <view class="text-xl text-black text-bold">创造者Pro
+      <text class="text-sm">v1.0.2</text>
+    </view>
+    <view class="margin-top-sm text-black ">
+      <text>By:Extrastu</text>
+    </view>
+  </view>
+ 
+  <view class="cu-list menu  margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/log/log" hover-class="none">
+        <text class="cuIcon-formfill text-blue"></text>
+        <text class="text-grey">更新日志</text>
+      </navigator>
+    </view>
+    <!-- <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view> -->
+    
+  </view>

@@ -1,0 +1,27 @@
+<!--pages/daily/daily.wxml-->
+<wxs src="../../utils/formatTime.wxs" module="filter" />
+<view class="cu-card case" wx:for='{{list}}' wx:key data-id='{{item.id}}' bindtap="toPostDetail">
+  <view class="cu-card dynamic ">
+    <view class="cu-item shadow">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round" style="background-image:url({{item.avatar?item.avatar:'https://media.creatorsdaily.com/QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;"></view>
+          <view class="content" style="width:200rpx;left:60px">
+            <view>{{item.user.nickname}}</view>
+          </view>
+          <view class="text-gray text-sm margin-right">
+              {{filter.formatTime(item.createdAt)}}
+            </view>
+        </view>
+      </view>
+      <view class="flex-sub">
+        <view class="bg-img only-img" style="background-image:url(https://media.creatorsdaily.com/{{item.media.hash}});border-radius:0px;" >
+        </view>
+      </view>
+      <view class="text-content margin-top">
+        {{item.title}}
+      </view>
+    </view>
+  </view>
+</view>
+<image src="../../images/loading.svg" style="width:100%;height:50px;"></image>

@@ -1,0 +1,60 @@
+<!--pages/search/search.wxml-->
+<view class="box">
+	<view class="cu-bar bg-white search">
+		<view class="search-form radius">
+			<text class="cuIcon-search"></text>
+			<input type="text" placeholder="搜索你关心的产品" confirm-type="search" bindconfirm="doSearch" bindinput="inputChange" bindfocus="beginSearch" value="{{keyword}}" ></input>
+		</view>
+		<view class="action" wx:if='{{isSearch==1}}'>
+			<text bindtap="cannelSearch">取消</text>
+		</view>
+	</view>
+</view>
+
+<view class="padding text-xl text-bold ">
+<text wx:if='{{list.length>0}}'>[ {{keyword}} ] 搜索结果</text>
+<text wx:if='{{likes.length>0}}'>产品好评榜</text>
+</view>
+
+<view class="cu-list menu-avatar" wx:if='{{list.length>0}}'>
+	<view class="cu-item cur bg-white margin-bottom " wx:for="{{list}}" wx:key='index' data-id='{{item.id}}' bindtap="toProductDetail">
+		<view class="cu-avatar radius lg" style="background-image:url(https://media.creatorsdaily.com/{{item.icon.hash?item.icon.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;">
+		</view>
+		<view class="content">
+			<view>
+				<text class="text-cut text-black">{{item.name}}</text>
+				<view class="cu-tag bg-black sm round" wx:if='{{item.isMiniProgram}}'>WX</view>
+			</view>
+			<view class="text-gray text-sm flex margin-top-xs text-cut">
+				<!-- <view class="cu-tag bg-grey sm round" wx:for="{{item.topics}}" wx:for-item='tag' style="margin-left:0;margin-right:10rpx">{{tag.name}}</view> -->
+				{{item.description}}
+			</view>
+		</view>
+		<view class="action">
+			<view class="cuIcon-usefullfill text-{{item.isLike?'red':'black'}}"></view>
+			<view class="text-{{item.isLike?'red':'black'}} text-xs">{{item.likeCount}}</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="cu-list menu-avatar" wx:if='{{likes.length>0}}'>
+	<view class="cu-item cur bg-white margin-bottom " wx:for="{{likes}}" wx:key='index' data-id='{{item.id}}' bindtap="toProductDetail">
+		<view class="cu-avatar radius lg" style="background-image:url(https://media.creatorsdaily.com/{{item.icon.hash?item.icon.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;">
+		</view>
+		<view class="content">
+			<view>
+				<text class="text-cut text-black">{{item.name}}</text>
+				<view class="cu-tag bg-black sm round" wx:if='{{item.isMiniProgram}}'>WX</view>
+			</view>
+			<view class="text-gray text-sm flex margin-top-xs text-cut">
+				<!-- <view class="cu-tag bg-grey sm round" wx:for="{{item.topics}}" wx:for-item='tag' style="margin-left:0;margin-right:10rpx">{{tag.name}}</view> -->
+				{{item.description}}
+			</view>
+		</view>
+		<view class="action">
+			<view class="cuIcon-usefullfill text-{{item.isLike?'red':'black'}}"></view>
+			<view class="text-{{item.isLike?'red':'black'}} text-xs">{{item.likeCount}}</view>
+		</view>
+	</view>
+</view>

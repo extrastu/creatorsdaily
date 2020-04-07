@@ -1,0 +1,9 @@
+<!--pages/class/class.wxml-->
+  <view class="cu-list grid col-{{gridCol}} no-border">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key  bindtap="goToTopic" data-id='{{item.id}}' data-title='{{item.name}}'>
+       <!-- <image src="{{item.icon}}" class="png" mode="widthFix"></image> -->
+       <view class="cu-avatar radius lg" style="background-image:url(https://media.creatorsdaily.com/{{item.icon?item.icon.hash:'QmcY163hXJ3mnKXbKrUv3B9QvTsYuicxscm66Du1HZeQxg-160-160-contain'}});background-color:unset;margin:0 auto">
+		</view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
